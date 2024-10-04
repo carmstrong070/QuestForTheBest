@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<title>Quest For The Best - Manhattan</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Amita:wght@400;700&display=swap" rel="stylesheet" />
+		<link href="https://fonts.googleapis.com/css2?family=Bona+Nova+SC:wght@700&display=swap" rel="stylesheet" />
+		<link href="Content/CSS/bootstrap-litera.min.css" rel="stylesheet" />
+		
+		<style>
+			.amita-regular {
+				font-family: "Amita", serif;
+				font-weight: 400;
+				font-style: normal;
+			}
+
+			.amita-bold {
+				font-family: "Amita", serif;
+				font-weight: 700;
+				font-style: normal;
+			}
+			
+			.bona-nova-sc-bold {
+				font-family: "Bona Nova SC", serif;
+				font-weight: 700;
+				font-style: normal;
+			}
+			
+			<!-- https://css-generators.com/ribbon-shapes/ -->
+			.ribbon { }
+			
+			.ribbon {
+				--s: 2em; /* the ribbon size */
+				--d: .8em;  /* the depth */
+				--c: .8em;  /* the cutout part */
+				
+				padding: var(--d) calc(var(--s) + .5em) 0;
+				line-height: 1.8;
+				background:
+					conic-gradient(from  45deg at left  var(--s) top var(--d),
+					#0008 12.5%,#0000 0 37.5%,#0004 0) 0   /50% 100% no-repeat,
+					conic-gradient(from -45deg at right var(--s) top var(--d),
+					#0004 62.5%,#0000 0 87.5%,#0008 0) 100%/50% 100% no-repeat;
+				clip-path: polygon(0 0,calc(var(--s) + var(--d)) 0,calc(var(--s) + var(--d)) var(--d),calc(100% - var(--s) - var(--d)) var(--d),calc(100% - var(--s) - var(--d)) 0,100% 0, calc(100% - var(--c)) calc(50% - var(--d)/2),100% calc(100% - var(--d)),calc(100% - var(--s)) calc(100% - var(--d)),calc(100% - var(--s)) 100%,var(--s) 100%,var(--s) calc(100% - var(--d)),0 calc(100% - var(--d)),var(--c) calc(50% - var(--d)/2));
+				background-color: #D95B43; /* the main color */
+				width: fit-content;
+				
+				font-size: 0.8rem;
+				letter-spacing: 0.4rem;
+			}
+			
+			@media (min-width: 1200px) {
+				.ribbon {
+					font-size: 1.3rem;
+				}
+			}
+
+			body {
+				background: #10090c;
+				background: url('Content/Images/fancy-cushion.webp') repeat;
+				font-family: Georgia,Cambria,"Times New Roman",Times,serif;
+			}
+			
+			.body-darken {
+				background: rgba(0, 0, 0, 0.4);
+			}
+			
+			#hero {
+				background: url('Content/Images/Manhattan_3.webp') no-repeat center center/cover;
+				position: relative;
+				border-bottom: 1px solid #5d0000;
+				box-shadow: 0 1px 20px rgba(0,0,0,.6);
+			}
+			
+			.darken-overlay {
+				position: absolute;
+				top: 0;
+				left: 0;
+				height: 100%;
+				width: 100%;
+				background: rgba(0, 0, 0, 0.6);
+			}
+			
+			#hero .display-1 {
+				font-size: calc(2rem + 4.5vw);
+				text-shadow: 0 1px 5px #fff26b,
+							 0 2px 1px #5a0003,
+							 0 4px 1px #470411,
+							 0 6px 1px #130014;
+			}
+			
+			<!-- #hero .display-1 { -->
+			<!-- } -->
+			
+			@media (min-width: 1200px) {
+				#hero .display-1 {
+					line-height: 6rem;
+					font-size: 8rem;
+				letter-spacing: 0.8rem;
+				}
+			}
+
+			.section-title {
+				color: #e7c697;
+				letter-spacing: 0.4rem;
+				text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+							 0px 8px 13px rgba(0,0,0,0.1),
+							 0px 18px 23px rgba(0,0,0,0.1);
+			}
+			
+			.section {
+				background: #333;
+				color: #d1d1d1;
+				border-radius: 10px;
+				margin: 15px 0;
+				border-bottom: 1px solid #5d0000;
+			}
+			
+			.bg-accent {
+				background: #444;
+			}
+			
+			.recipe-table {
+				font-size: 1rem;
+			}
+			
+			.recipe-table td {
+				vertical-align: top;
+				padding-bottom: 0.4rem;
+			}
+			
+			.recipe-table td:nth-child(1) {
+				min-width: 8rem;
+				
+			}
+			
+			.recipe-table td:nth-child(2) {
+				color: #ffb245;
+			}
+			
+			@media (min-width: 768px) {
+				.recipe-table {
+					font-size: 1.4rem;
+				}
+			}
+			
+			@media (min-width: 768px) {
+				.recipe-instructions {
+					font-size: 1.4rem;
+				}
+			}
+			
+			.riffs-riff {
+				font-weight: bold;
+			}
+			
+			@media (min-width: 768px) {
+				.riffs-riff {
+					font-size: 1.4rem;
+				}
+			}
+			
+			.riffs-img {
+				width: 120px;
+				height: 120px;
+				margin-bottom: 1rem;
+			}
+			
+			.list-group {
+				--bs-list-group-border-color: #666;
+				font-size: 1.2rem;
+			}
+			
+			.list-group-item {
+				background: #444;
+				color: #ffb245;
+			}
+			
+			.list-group-item.active {
+				background: #8B0000;
+				border-color: #8B0000;
+			}
+
+			.bullet {
+				display: inline-block;
+				margin-right: 0.5rem;
+			}
+
+			footer {
+				background: #222;
+				color: #d1d1d1;
+				padding: 20px 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="body-darken">
+			<!-- Header Section -->
+			<section id="hero" class="d-flex align-items-center justify-content-center">
+				<div class="darken-overlay"></div>
+				<div class="container text-center text-light position-relative">
+					<div class="jumbotron py-5">
+						<hr />
+						<div class="ribbon amita-bold fw-bold text-white text-uppercase mx-auto">&nbsp;Quest For The Best&nbsp;</div>
+						<div class="py-4"></div>
+						<h2 class="display-5 amita-regular mb-0">The History of the</h2>
+						<h1 class="display-1 bona-nova-sc-bold">Manhattan</h1>
+						<div class="py-4"></div>
+						<h4 class="amita-regular">"A timeless classic, served in style."</h3>
+						<hr />
+					</div>
+				</div>
+			</section>
+			
+			<!-- Origin Section -->
+			<section class="container my-5">
+				<div class="section py-4 px-md-5 px-3 shadow-lg">
+					<h2 class="section-title text-center bona-nova-sc-bold mb-4">Place of Origin</h2>
+					<p class="px-md-5 px-3">
+						The venerable Manhattan is the grandfather of so many cocktails we know as classics today. It was the very first cocktail (as far as we know) to use vermouth, and spawned a legion of children – including the Martini. This is the kind of drink you could spend your whole life mastering; we say it’s a worthy investment of your time.
+					</p>
+					<p class="px-md-5 px-3">
+						The Manhattan cocktail is said to have been <strong>created in the early 1880s</strong> at the Manhattan Club in New York City. Legend has it that it was crafted for a banquet hosted by Jennie Jerome (Lady Randolph Churchill), mother of Winston Churchill. This classic drink quickly gained popularity and became a symbol of sophistication and class.
+					</p>
+				</div>
+			</section>
+			
+			<!-- Ingredients Section -->
+			<section class="container my-5">
+				<div class="section py-4 px-md-0 px-3 shadow-lg">
+					<h2 class="section-title text-center bona-nova-sc-bold mb-3">Recipe</h2>
+					<div class="row justify-content-center bg-accent rounded py-3 mb-3">
+						<div class="col-md-8">
+							<table class="recipe-table mx-auto">
+								<tr>
+									<td>2 parts</td>
+									<td><strong>Rye</strong> or <strong>Bourbon Whiskey</strong></td>
+								</tr>
+								<tr>
+									<td>1 part</td>
+									<td><strong>Sweet Vermouth</strong></td>
+								</tr>
+								<tr>
+									<td>2 dashes</td>
+									<td><strong>Angostura Bitters</strong></td>
+								</tr>
+								<tr>
+									<td>1</td>
+									<td><strong>Maraschino Cherry</strong> (for garnish)</td>
+								</tr>
+							</table>
+
+						</div>
+					</div>
+					
+					<!-- How to Make Section -->
+					<div class="row justify-content-center">
+						<div class="col-md-8">
+							<p class="recipe-instructions text-center">
+								Stir with ice and strain into a chilled cocktail glass. Garnish with a cherry.
+							</p>
+						</div>
+					</div>
+				</div>
+			</section>
+			
+			<!-- Glassware Section -->
+			<section class="container my-5">
+				<div class="section py-4 px-md-5 px-3 shadow-lg">
+					<h2 class="section-title text-center bona-nova-sc-bold mb-3">Glassware</h2>
+					<p class="px-md-5 px-3">The Manhattan is <strong>traditionally served in a martini glass</strong>. Although, it can be served in a coupe or Nick &amp; Nora glass as well. The elegant stems of these glasses allows the drink to stay cool while holding it, preserving the cocktail’s rich aroma and flavor.</p>
+				</div>
+			</section>
+			
+			<!-- Influence Section -->
+			<section class="container my-5">
+				<div class="section py-4 px-md-5 px-3 bg-accent">
+					<h2 class="section-title text-center bona-nova-sc-bold mb-3">Influence on Other Cocktails</h2>
+					<p class="px-md-5 px-3">The Manhattan has inspired numerous other classic cocktails, such as the <strong>Rob Roy</strong> (which uses Scotch instead of Rye), and the <strong>Old Pal</strong> (which uses dry vermouth and a splash of Campari). Its influence can be seen in most stirred, spirit-forward drinks that emphasize a balance between sweet and bitter flavors.</p>
+				</div>
+			</section>
+			
+			<!-- Riffs Section -->
+			<section class="container my-5">
+				<div class="section py-4 px-md-5 px-3 shadow-lg">
+					<h2 class="section-title text-center bona-nova-sc-bold mb-3">Potential Riffs</h2>
+					<p class="text-center">
+						<img src="Content/Images/PerfectManhattan.webp" class="d-block mx-auto riffs-img" alt="Perfect Manhattan" width="512" height="512" />
+						<span class="riffs-riff">Perfect Manhattan</span>
+						<br />
+						Uses equal parts sweet and dry vermouth.
+					</p>
+					<p class="text-center">
+						<img src="Content/Images/BlackManhattan.webp" class="d-block mx-auto riffs-img" alt="Perfect Manhattan" width="512" height="512" />
+						<span class="riffs-riff">Black Manhattan</span>
+						<br />
+						Replaces vermouth with Amaro for a richer flavor.
+					</p>
+					<p class="text-center">
+						<img src="Content/Images/MapleManhattan.webp" class="d-block mx-auto riffs-img" alt="Perfect Manhattan" width="512" height="512" />
+						<span class="riffs-riff">Maple Manhattan</span>
+						<br />
+						Adds a hint of maple syrup for sweetness.
+					</p>
+				</div>
+			</section>
+			
+			<!-- FAQ Section -->
+			<section class="container my-5">
+				<div class="section py-4 px-md-5 px-3 bg-accent shadow-lg">
+					<h2 class="section-title text-center bona-nova-sc-bold mb-3">Frequently Asked Questions</h2>
+					<ul class="list-group list-group-flush mx-md-5 rounded">
+						<li class="list-group-item">
+							<strong><span class="bullet">•</span> Should I use rye or bourbon whiskey?</strong>
+							<br />
+							A Manhattan can be made with either rye or bourbon whiskey, and the choice is a matter of personal taste.
+						</li>
+						<li class="list-group-item">
+							<strong><span class="bullet">•</span> Does a Manhattan have grenadine?</strong>
+							<br />
+							No, Kelsey, a Manhattan does not have grenadine.
+						</li>
+					</ul>
+				</div>
+			</section>
+			
+			<!-- Footer Section -->
+			<footer class="text-center">
+				<p class="mb-0"><strong>Quest For The Best</strong> &mdash; Manhattan</p>
+			</footer>
+		</div>
+		
+		<!-- Bootstrap JS Bundle with Popper -->
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"/>
+	</body>
+</html>
